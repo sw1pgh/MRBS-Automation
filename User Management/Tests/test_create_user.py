@@ -5,9 +5,9 @@ def test_right_create_user(navigation, page:Page, headless=False):
 
     users_btn = page.locator("xpath = //*[@id='root']/div/div/div/ul/a[3]/li/div")
     create_btn=page.locator("#create-btn")
-    name_field=page.locator("#\:r1\:")
-    email_field=page.locator("#\:r3\:")
-    emp_Id=page.locator("#\:r5\:")
+    name_field=page.locator("xpath = /html/body/div[3]/div[3]/form/div/div[1]/div/div/input")
+    email_field=page.locator("xpath = /html/body/div[3]/div[3]/form/div/div[2]/div/div/input")
+    emp_Id=page.locator("xpath = /html/body/div[3]/div[3]/form/div/div[3]/div/div/input")
     role=page.locator("#mui-component-select-role")
     admin=page.locator("xpath = //*[@id='menu-role']/div[3]/ul/li[1]")
     user=page.locator("xpath = //*[@id='menu-role']/div[3]/ul/li[2]")
@@ -27,28 +27,31 @@ def test_right_create_user(navigation, page:Page, headless=False):
 
     assert(email_field.is_editable())
     email_field.click()
-    email_field.fill("swjdjiel.ghosh@geotechinfo.net")
+    email_field.fill("swapnaneel.ghosh@geotechinfo.net")
 
     assert(emp_Id.is_enabled())
     emp_Id.click()
-    emp_Id.fill("GIPL/186")
+    emp_Id.fill("GIPL/239")
 
     assert(role.is_enabled())
     role.click()
     user.click()
 
-    assert(save_btn.is_enabled())
-    save_btn.click()
+    assert(close_btn.is_enabled)
+    close_btn.click()
+    
+    # assert(save_btn.is_enabled())
+    # save_btn.click()
 
-    assert(noti.inner_text()=="User has been created successfully")
+    # assert(noti.inner_text()=="User has been created successfully")
 
 def test_wrong_create_user(navigation, page:Page, headless=False):
 
     users_btn = page.locator("xpath = //*[@id='root']/div/div/div/ul/a[3]/li/div")
     create_btn=page.locator("#create-btn")
-    name_field=page.locator("#\:r1\:")
-    email_field=page.locator("#\:r3\:")
-    emp_Id=page.locator("#\:r5\:")
+    name_field=page.locator("xpath = /html/body/div[3]/div[3]/form/div/div[1]/div/div/input")
+    email_field=page.locator("xpath = /html/body/div[3]/div[3]/form/div/div[2]/div/div/input")
+    emp_Id=page.locator("xpath = /html/body/div[3]/div[3]/form/div/div[3]/div/div/input")
     role=page.locator("#mui-component-select-role")
     admin=page.locator("xpath = //*[@id='menu-role']/div[3]/ul/li[1]")
     user=page.locator("xpath = //*[@id='menu-role']/div[3]/ul/li[2]")

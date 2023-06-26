@@ -2,9 +2,9 @@ import pytest
 from playwright.sync_api import Page
 
 def test_right_edit_meeting_room(navigation, page:Page, headless=False):
-    edit_btn=page.locator("xpath = /html/body/div[1]/div/main/div[2]/div/table/tbody/tr[1]/td[4]/button")
-    name_field=page.locator("#\:r1\:")
-    capacity_field=page.locator("xpath = /html/body/div[3]/div[3]/form/div/div[2]/div/div/input")    
+    edit_btn=page.locator("xpath = //*[@id='meeting-room-table']/tbody/tr[1]/td[4]/button")
+    name_field=page.locator("#\:r0\:")
+    capacity_field=page.locator("#\:r1\:")    
     status=page.locator("#mui-component-select-status")
     active = page.locator("xpath = //*[@id='menu-status']/div[3]/ul/li[1]")
     inactive=page.locator("xpath = //*[@id='menu-status']/div[3]/ul/li[2]")
@@ -18,11 +18,11 @@ def test_right_edit_meeting_room(navigation, page:Page, headless=False):
     
     assert(name_field.is_enabled())
     name_field.click()
-    name_field.fill("Melbourne")    
+    name_field.fill("SSG")    
 
     assert(capacity_field.is_enabled())
     capacity_field.click()
-    capacity_field.fill("4")    
+    capacity_field.fill("10")    
 
     assert(status.is_enabled())
     status.click()    
@@ -40,9 +40,9 @@ def test_right_edit_meeting_room(navigation, page:Page, headless=False):
 
 
 def test_wrong_meeting_room(navigation, page:Page, headless=False):
-    edit_btn=page.locator("xpath = //*[@id='meeting-room-table']/tbody/tr/td[4]/button")
-    name_field=page.locator("#\:r1\:")
-    capacity_field=page.locator("xpath = /html/body/div[3]/div[3]/form/div/div[2]/div/div/input")    
+    edit_btn=page.locator("xpath = //*[@id='meeting-room-table']/tbody/tr[1]/td[4]/button")
+    name_field=page.locator("#\:r0\:")
+    capacity_field=page.locator("#\:r1\:")    
     status=page.locator("#mui-component-select-status")
     active = page.locator("xpath = //*[@id='menu-status']/div[3]/ul/li[1]")
     inactive=page.locator("xpath = //*[@id='menu-status']/div[3]/ul/li[2]")
